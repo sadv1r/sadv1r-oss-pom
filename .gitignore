@@ -1,9 +1,0 @@
-# IDEA
-# ----
-.idea/
-/*.iml
-/out
-
-target/
-
-.DS_Store
