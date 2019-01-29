@@ -13,7 +13,6 @@
     <description>Parent POM for Sadv1r's personal open source java projects that should be distributed through the
         central Maven repository using oss.sonatype.org
     </description>
-
     <url>https://sadv1r.github.com/${project.artifactId}</url>
     <inceptionYear>2015</inceptionYear>
 
@@ -21,7 +20,7 @@
         <developer>
             <id>sadv1r</id>
             <name>Dmitry Ivanov</name>
-            <email>sadv12@gmail.com</email>
+            <email>me@sadv1r.ru</email>
             <url>http://sadv1r.ru</url>
             <timezone>Europe/Moscow</timezone>
             <roles>
@@ -51,9 +50,9 @@
     </distributionManagement>
 
     <properties>
-        <project.build.jdk>1.8</project.build.jdk>
-        <maven.compiler.source>${project.build.jdk}</maven.compiler.source>
-        <maven.compiler.target>${project.build.jdk}</maven.compiler.target>
+        <javaVersion>1.8</javaVersion>
+        <maven.compiler.source>${javaVersion}</maven.compiler.source>
+        <maven.compiler.target>${javaVersion}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -215,8 +214,8 @@
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
                             <manifestEntries>
-                                <Source-Java-Version>${project.build.jdk}</Source-Java-Version>
-                                <Target-Java-Version>${project.build.jdk}</Target-Java-Version>
+                                <Source-Java-Version>${javaVersion}</Source-Java-Version>
+                                <Target-Java-Version>${javaVersion}</Target-Java-Version>
                                 <Implementation-ProductID>${project.artifactId}</Implementation-ProductID>
                             </manifestEntries>
                         </archive>
@@ -333,7 +332,7 @@
 
     <profiles>
         <profile>
-            <id>oss-release</id>
+            <id>ossrh</id>
             <build>
                 <plugins>
                     <plugin>
@@ -344,12 +343,12 @@
             </build>
             <distributionManagement>
                 <snapshotRepository>
-                    <id>sonatype-nexus-snapshots</id>
+                    <id>ossrh</id>
                     <name>Sonatype Nexus Snapshots</name>
                     <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
                 </snapshotRepository>
                 <repository>
-                    <id>sonatype-nexus-staging</id>
+                    <id>ossrh</id>
                     <name>Nexus Release Repository</name>
                     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                 </repository>
